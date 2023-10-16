@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="30.284" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="20"/>
+    <property name="webdriver.chrome.driver" value="/Applications/chromedriver_mac64/chromedriver"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/austin/Documents/resume-generator-testing/target/test-classes:/Users/austin/Documents/resume-generator-testing/target/classes:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.141.59/selenium-edge-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.141.59/selenium-firefox-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.141.59/selenium-ie-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.141.59/selenium-opera-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.141.59/selenium-safari-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-support/3.141.59/selenium-support-3.141.59.jar:/Users/austin/.m2/repository/net/bytebuddy/byte-buddy/1.8.15/byte-buddy-1.8.15.jar:/Users/austin/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/Users/austin/.m2/repository/com/google/guava/guava/25.0-jre/guava-25.0-jre.jar:/Users/austin/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/austin/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/Users/austin/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/Users/austin/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/austin/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/austin/.m2/repository/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0.jar:/Users/austin/.m2/repository/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar:/Users/austin/.m2/repository/org/testng/testng/7.4.0/testng-7.4.0.jar:/Users/austin/.m2/repository/com/beust/jcommander/1.78/jcommander-1.78.jar:/Users/austin/.m2/repository/org/webjars/jquery/3.5.1/jquery-3.5.1.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-java/7.4.0/cucumber-java-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-core/7.4.0/cucumber-core-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-gherkin/7.4.0/cucumber-gherkin-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.4.0/cucumber-gherkin-messages-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/gherkin/23.0.1/gherkin-23.0.1.jar:/Users/austin/.m2/repository/io/cucumber/messages/18.0.0/messages-18.0.0.jar:/Users/austin/.m2/repository/io/cucumber/tag-expressions/4.1.0/tag-expressions-4.1.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-expressions/16.0.0/cucumber-expressions-16.0.0.jar:/Users/austin/.m2/repository/io/cucumber/datatable/7.4.0/datatable-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-plugin/7.4.0/cucumber-plugin-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/docstring/7.4.0/docstring-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/html-formatter/19.2.0/html-formatter-19.2.0.jar:/Users/austin/.m2/repository/io/cucumber/ci-environment/9.0.4/ci-environment-9.0.4.jar:/Users/austin/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-testng/7.4.0/cucumber-testng-7.4.0.jar:/Users/austin/.m2/repository/com/itextpdf/itextpdf/5.5.13/itextpdf-5.5.13.jar:"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="user.timezone" value="America/Vancouver"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="20"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CA"/>
+    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/20.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/austin/Documents/resume-generator-testing/target/surefire/surefirebooter5082847400218765967.jar /Users/austin/Documents/resume-generator-testing/target/surefire 2023-10-15T23-19-01_783-jvmRun1 surefire16956193140016741906tmp surefire_017022738598671053848tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/austin/Documents/resume-generator-testing/target/test-classes:/Users/austin/Documents/resume-generator-testing/target/classes:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.141.59/selenium-edge-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.141.59/selenium-firefox-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.141.59/selenium-ie-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.141.59/selenium-opera-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.141.59/selenium-safari-driver-3.141.59.jar:/Users/austin/.m2/repository/org/seleniumhq/selenium/selenium-support/3.141.59/selenium-support-3.141.59.jar:/Users/austin/.m2/repository/net/bytebuddy/byte-buddy/1.8.15/byte-buddy-1.8.15.jar:/Users/austin/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/Users/austin/.m2/repository/com/google/guava/guava/25.0-jre/guava-25.0-jre.jar:/Users/austin/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/austin/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/Users/austin/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/Users/austin/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/austin/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/austin/.m2/repository/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0.jar:/Users/austin/.m2/repository/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar:/Users/austin/.m2/repository/org/testng/testng/7.4.0/testng-7.4.0.jar:/Users/austin/.m2/repository/com/beust/jcommander/1.78/jcommander-1.78.jar:/Users/austin/.m2/repository/org/webjars/jquery/3.5.1/jquery-3.5.1.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-java/7.4.0/cucumber-java-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-core/7.4.0/cucumber-core-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-gherkin/7.4.0/cucumber-gherkin-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.4.0/cucumber-gherkin-messages-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/gherkin/23.0.1/gherkin-23.0.1.jar:/Users/austin/.m2/repository/io/cucumber/messages/18.0.0/messages-18.0.0.jar:/Users/austin/.m2/repository/io/cucumber/tag-expressions/4.1.0/tag-expressions-4.1.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-expressions/16.0.0/cucumber-expressions-16.0.0.jar:/Users/austin/.m2/repository/io/cucumber/datatable/7.4.0/datatable-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-plugin/7.4.0/cucumber-plugin-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/docstring/7.4.0/docstring-7.4.0.jar:/Users/austin/.m2/repository/io/cucumber/html-formatter/19.2.0/html-formatter-19.2.0.jar:/Users/austin/.m2/repository/io/cucumber/ci-environment/9.0.4/ci-environment-9.0.4.jar:/Users/austin/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/austin/.m2/repository/io/cucumber/cucumber-testng/7.4.0/cucumber-testng-7.4.0.jar:/Users/austin/.m2/repository/com/itextpdf/itextpdf/5.5.13/itextpdf-5.5.13.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/austin"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-07-18"/>
+    <property name="java.home" value="/usr/local/Cellar/openjdk/20.0.2/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/austin/Documents/resume-generator-testing"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/austin/Documents/resume-generator-testing/target/surefire/surefirebooter5082847400218765967.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="20.0.2"/>
+    <property name="user.name" value="austin"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="11.7.6"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/austin/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/k8/ggdf5tjd4bg60lm20p2vd1th0000gn/T/"/>
+    <property name="java.version" value="20.0.2"/>
+    <property name="user.dir" value="/Users/austin/Documents/resume-generator-testing"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/austin/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="20.0.2"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="64.0"/>
+  </properties>
+  <testcase name="runScenario[&quot;Add new experience&quot;, &quot;Experience Feature&quot;](1)" classname="com.example.CucumberRunner" time="26.986">
+    <system-out><![CDATA[
+Scenario: Add new experience           &amp#27;[90m# src/test/resources/features/experience.feature:14&amp#27;[0m
+  &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mexisting experience is present&amp#27;[0m &amp#27;[90m# com.example.ExperienceTest.resume_contains_content1()&amp#27;[0m
+  &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mnew experience is added&amp#27;[0m         &amp#27;[90m# com.example.ExperienceTest.addExperience()&amp#27;[0m
+  &amp#27;[32mThen &amp#27;[0m&amp#27;[32mnew experience is on resume&amp#27;[0m     &amp#27;[90m# com.example.ExperienceTest.verifyResume()&amp#27;[0m
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 117.0.5938.149 (e3344ddefa12e60436fa28c81cf207c1afb4d0a9-refs/branch-heads/5938@{#1539}) on port 48019
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Oct 15, 2023 11:19:12 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 117.0.5938.149 (e3344ddefa12e60436fa28c81cf207c1afb4d0a9-refs/branch-heads/5938@{#1539}) on port 7180
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Oct 15, 2023 11:19:19 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Starting ChromeDriver 117.0.5938.149 (e3344ddefa12e60436fa28c81cf207c1afb4d0a9-refs/branch-heads/5938@{#1539}) on port 9147
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Oct 15, 2023 11:19:26 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+</testsuite>

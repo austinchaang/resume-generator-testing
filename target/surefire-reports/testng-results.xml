@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-10-15T23:19:04 PDT" name="ResumeGeneratorSuite" finished-at="2023-10-15T23:19:32 PDT" duration-ms="28512">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.example.CucumberRunner@1f1c7bf6]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2023-10-15T23:19:04 PDT" name="ResumeGeneratorTest" finished-at="2023-10-15T23:19:32 PDT" duration-ms="28512">
+      <class name="com.example.CucumberRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.example.CucumberRunner@1f1c7bf6]" started-at="2023-10-15T23:19:04 PDT" name="setUpClass" finished-at="2023-10-15T23:19:05 PDT" duration-ms="1317" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@2b34e38c]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.example.CucumberRunner@1f1c7bf6]" started-at="2023-10-15T23:19:05 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-10-15T23:19:32 PDT" duration-ms="26852" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Add new experience"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Experience Feature"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.example.CucumberRunner@1f1c7bf6]" started-at="2023-10-15T23:19:32 PDT" name="tearDownClass" finished-at="2023-10-15T23:19:32 PDT" duration-ms="187" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.example.CucumberRunner -->
+    </test> <!-- ResumeGeneratorTest -->
+  </suite> <!-- ResumeGeneratorSuite -->
+</testng-results>
