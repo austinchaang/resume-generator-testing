@@ -35,7 +35,10 @@ public class ExperienceTest {
     WebElement location;
     WebElement description;
     WebDriverWait wait;
-    JavascriptExecutor js;;
+    WebElement save;
+    WebElement delete;
+    WebElement cancel;
+    JavascriptExecutor js;
 
     private static int getStatusCode(String urlString) {
         try {
@@ -193,6 +196,336 @@ public class ExperienceTest {
         Assert.assertEquals(containerText.contains("July 4, 2021"), true);
         Assert.assertEquals(containerText.contains("January 23, 2023"), true);
         Assert.assertEquals(containerText.contains("Berlin, Germany"), true);
+    }
+
+    @When("new experience is saved and edited")
+    public void editNewExperience() {
+        By expandButton = By.cssSelector(".add-experience-section button.expand-section");
+        WebElement section = wait.until(ExpectedConditions.elementToBeClickable(experience.expandExperienceSection()));
+        WebElement expand = section.findElement(expandButton);
+        js.executeScript("arguments[0].scrollIntoView(true);", expand);
+        js.executeScript("arguments[0].click();", expand);
+
+        addExperience = wait.until(ExpectedConditions.elementToBeClickable(experience.createExperience()));
+        js.executeScript("arguments[0].scrollIntoView(true);", addExperience);
+        js.executeScript("arguments[0].click();", addExperience);
+
+        companyName = wait.until(ExpectedConditions.elementToBeClickable(experience.addCompanyName()));
+        positionTitle = wait.until(ExpectedConditions.elementToBeClickable(experience.addPositionTitle()));
+        startDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceStartDate()));
+        endDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceEndDate()));
+        location = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceLocation()));
+
+        companyName.sendKeys("Meta");
+        positionTitle.sendKeys("Product Owner");
+        startDate.sendKeys("December 10, 1998");
+        endDate.sendKeys("May 10, 2000");
+        location.sendKeys("Brighton, England");
+
+        save = wait.until(ExpectedConditions.elementToBeClickable(experience.experienceSave()));
+        js.executeScript("arguments[0].scrollIntoView(true);", save);
+        js.executeScript("arguments[0].click();", save);
+
+        // Check if edits appear
+        containerText = resumeContainer.getText();
+        // System.out.println("Text inside the textarea is " + containerText);
+        Assert.assertEquals(containerText.contains("Meta"), true);
+        Assert.assertEquals(containerText.contains("Product Owner"), true);
+        Assert.assertEquals(containerText.contains("December 10, 1998"), true);
+        Assert.assertEquals(containerText.contains("May 10, 2000"), true);
+        Assert.assertEquals(containerText.contains("Brighton, England"), true);
+
+        // Make edits
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[p[@class='collapsed-form-title' and text()='Meta']]")));
+        js.executeScript("arguments[0].scrollIntoView(true);", button);
+        js.executeScript("arguments[0].click();", button);
+
+        companyName = wait.until(ExpectedConditions.elementToBeClickable(experience.addCompanyName()));
+        positionTitle = wait.until(ExpectedConditions.elementToBeClickable(experience.addPositionTitle()));
+        startDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceStartDate()));
+        endDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceEndDate()));
+        location = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceLocation()));
+        clearWebField(companyName);
+        clearWebField(positionTitle);
+        clearWebField(startDate);
+        clearWebField(endDate);
+        clearWebField(location);
+        companyName.sendKeys("Studio TTT");
+        positionTitle.sendKeys("Technical Product Manager");
+        startDate.sendKeys("07/08/1992");
+        endDate.sendKeys("09/09/09");
+        location.sendKeys("Portland, OR, USA");
+    }
+
+    @Then("new experience edits appear on resume")
+    public void editsAppear() {
+        containerText = resumeContainer.getText();
+        // System.out.println("Text inside the textarea is " + containerText);
+        Assert.assertEquals(containerText.contains("Studio TTT"), true);
+        Assert.assertEquals(containerText.contains("Technical Product Manager"), true);
+        Assert.assertEquals(containerText.contains("07/08/1992"), true);
+        Assert.assertEquals(containerText.contains("09/09/09"), true);
+        Assert.assertEquals(containerText.contains("Portland, OR, USA"), true);
+
+        Assert.assertEquals(containerText.contains("Meta"), false);
+        Assert.assertEquals(containerText.contains("Product Owner"), false);
+        Assert.assertEquals(containerText.contains("December 10, 1998"), false);
+        Assert.assertEquals(containerText.contains("May 10, 2000"), false);
+        Assert.assertEquals(containerText.contains("Brighton, England"), false);
+    }
+
+    @When("new experience is saved and hidden")
+    public void newExperienceSavedAndHidden() {
+        By expandButton = By.cssSelector(".add-experience-section button.expand-section");
+        WebElement section = wait.until(ExpectedConditions.elementToBeClickable(experience.expandExperienceSection()));
+        WebElement expand = section.findElement(expandButton);
+        js.executeScript("arguments[0].scrollIntoView(true);", expand);
+        js.executeScript("arguments[0].click();", expand);
+
+        addExperience = wait.until(ExpectedConditions.elementToBeClickable(experience.createExperience()));
+        js.executeScript("arguments[0].scrollIntoView(true);", addExperience);
+        js.executeScript("arguments[0].click();", addExperience);
+
+        companyName = wait.until(ExpectedConditions.elementToBeClickable(experience.addCompanyName()));
+        positionTitle = wait.until(ExpectedConditions.elementToBeClickable(experience.addPositionTitle()));
+        startDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceStartDate()));
+        endDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceEndDate()));
+        location = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceLocation()));
+
+        companyName.sendKeys("Meta");
+        positionTitle.sendKeys("Product Owner");
+        startDate.sendKeys("December 10, 1998");
+        endDate.sendKeys("May 10, 2000");
+        location.sendKeys("Brighton, England");
+
+        save = wait.until(ExpectedConditions.elementToBeClickable(experience.experienceSave()));
+        js.executeScript("arguments[0].scrollIntoView(true);", save);
+        js.executeScript("arguments[0].click();", save);
+
+        // Hide new experience
+        By hideBy = By.xpath(
+                "//button[p[text()='Meta']]/i[contains(@class, 'fa-regular') and contains(@class, 'fa-eye')]");
+        WebElement hideButton = wait.until(ExpectedConditions.elementToBeClickable(hideBy));
+        js.executeScript("arguments[0].scrollIntoView(true);", hideButton);
+        js.executeScript("arguments[0].click();", hideButton);
+    }
+
+    @Then("new experience is hidden")
+    public void verifyNewExperienceHidden() {
+        containerText = resumeContainer.getText();
+        // System.out.println("Text inside the textarea is " + containerText);
+        Assert.assertEquals(containerText.contains("Meta"), false);
+        Assert.assertEquals(containerText.contains("Product Owner"), false);
+        Assert.assertEquals(containerText.contains("December 10, 1998"), false);
+        Assert.assertEquals(containerText.contains("May 10, 2000"), false);
+        Assert.assertEquals(containerText.contains("Brighton, England"), false);
+    }
+
+    @When("new experience is saved and then deleted")
+    public void newExperienceSavedAndDeleted() {
+        By expandButton = By.cssSelector(".add-experience-section button.expand-section");
+        WebElement section = wait.until(ExpectedConditions.elementToBeClickable(experience.expandExperienceSection()));
+        WebElement expand = section.findElement(expandButton);
+        js.executeScript("arguments[0].scrollIntoView(true);", expand);
+        js.executeScript("arguments[0].click();", expand);
+
+        addExperience = wait.until(ExpectedConditions.elementToBeClickable(experience.createExperience()));
+        js.executeScript("arguments[0].scrollIntoView(true);", addExperience);
+        js.executeScript("arguments[0].click();", addExperience);
+
+        companyName = wait.until(ExpectedConditions.elementToBeClickable(experience.addCompanyName()));
+        positionTitle = wait.until(ExpectedConditions.elementToBeClickable(experience.addPositionTitle()));
+        startDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceStartDate()));
+        endDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceEndDate()));
+        location = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceLocation()));
+
+        companyName.sendKeys("Meta");
+        positionTitle.sendKeys("Product Owner");
+        startDate.sendKeys("December 10, 1998");
+        endDate.sendKeys("May 10, 2000");
+        location.sendKeys("Brighton, England");
+
+        save = wait.until(ExpectedConditions.elementToBeClickable(experience.experienceSave()));
+        js.executeScript("arguments[0].scrollIntoView(true);", save);
+        js.executeScript("arguments[0].click();", save);
+
+        // Delete new experience
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[p[@class='collapsed-form-title' and text()='Meta']]")));
+        js.executeScript("arguments[0].scrollIntoView(true);", button);
+        js.executeScript("arguments[0].click();", button);
+
+        delete = wait.until(ExpectedConditions.elementToBeClickable(experience.experienceDelete()));
+        js.executeScript("arguments[0].scrollIntoView(true);", delete);
+        js.executeScript("arguments[0].click();", delete);
+    }
+
+    @Then("new experience is deleted from resume")
+    public void verifyNewExperienceDeleted() {
+        containerText = resumeContainer.getText();
+        // System.out.println("Text inside the textarea is " + containerText);
+        Assert.assertEquals(containerText.contains("Meta"), false);
+        Assert.assertEquals(containerText.contains("Product Owner"), false);
+        Assert.assertEquals(containerText.contains("December 10, 1998"), false);
+        Assert.assertEquals(containerText.contains("May 10, 2000"), false);
+        Assert.assertEquals(containerText.contains("Brighton, England"), false);
+    }
+
+    @When("existing experience is deleted")
+    public void existingExperienceDeleted() {
+        By expandButton = By.cssSelector(".add-experience-section button.expand-section");
+        WebElement section = wait.until(ExpectedConditions.elementToBeClickable(experience.expandExperienceSection()));
+        WebElement expand = section.findElement(expandButton);
+        js.executeScript("arguments[0].scrollIntoView(true);", expand);
+        js.executeScript("arguments[0].click();", expand);
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[p[@class='collapsed-form-title' and text()='Providence Healthcare']]")));
+        js.executeScript("arguments[0].scrollIntoView(true);", button);
+        js.executeScript("arguments[0].click();", button);
+
+        delete = wait.until(ExpectedConditions.elementToBeClickable(experience.experienceDelete()));
+        js.executeScript("arguments[0].scrollIntoView(true);", delete);
+        js.executeScript("arguments[0].click();", delete);
+    }
+
+    @Then("existing experience is not on resume")
+    public void verifyExistingExperienceDeleted() {
+        containerText = resumeContainer.getText();
+        System.out.println("Text inside the textarea is " + containerText);
+        Assert.assertEquals(containerText.contains("Providence Healthcare"), false);
+        Assert.assertEquals(containerText.contains("Co-op"), false);
+        Assert.assertEquals(containerText.contains("09/19"), false);
+        Assert.assertEquals(containerText.contains("05/20"), false);
+        Assert.assertEquals(containerText.contains("Vancouver, Canada"), false);
+        Assert.assertEquals(containerText.contains(
+                "Worked with product managers to re-architect a multi-page web app into a single page web-app, boosting yearly revenue by $1.4M"),
+                false);
+    }
+
+    @When("edits are made to an existing experience and cancel button is pressed")
+    public void editAndCancelExistingExperience() {
+        By expandButton = By.cssSelector(".add-experience-section button.expand-section");
+        WebElement section = wait.until(ExpectedConditions.elementToBeClickable(experience.expandExperienceSection()));
+        WebElement expand = section.findElement(expandButton);
+        js.executeScript("arguments[0].scrollIntoView(true);", expand);
+        js.executeScript("arguments[0].click();", expand);
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[p[@class='collapsed-form-title' and text()='Providence Healthcare']]")));
+        js.executeScript("arguments[0].scrollIntoView(true);", button);
+        js.executeScript("arguments[0].click();", button);
+
+        // Edits are made
+        companyName = wait.until(ExpectedConditions.elementToBeClickable(experience.addCompanyName()));
+        positionTitle = wait.until(ExpectedConditions.elementToBeClickable(experience.addPositionTitle()));
+        startDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceStartDate()));
+        endDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceEndDate()));
+        location = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceLocation()));
+        clearWebField(companyName);
+        clearWebField(positionTitle);
+        clearWebField(startDate);
+        clearWebField(endDate);
+        clearWebField(location);
+        companyName.sendKeys("Meta");
+        positionTitle.sendKeys("Product Owner");
+        startDate.sendKeys("December 10, 1998");
+        endDate.sendKeys("May 10, 2000");
+        location.sendKeys("Brighton, England");
+
+        cancel = wait.until(ExpectedConditions.elementToBeClickable(experience.experienceCancel()));
+        js.executeScript("arguments[0].scrollIntoView(true);", cancel);
+        js.executeScript("arguments[0].click();", cancel);
+    }
+
+    @Then("changes will not be made on resume")
+    public void changesNotMadeExistingExperience() {
+        containerText = resumeContainer.getText();
+        // System.out.println("Text inside the textarea is " + containerText);
+        Assert.assertEquals(containerText.contains("Meta"), false);
+        Assert.assertEquals(containerText.contains("Product Owner"), false);
+        Assert.assertEquals(containerText.contains("December 10, 1998"), false);
+        Assert.assertEquals(containerText.contains("May 10, 2000"), false);
+        Assert.assertEquals(containerText.contains("Brighton, England"), false);
+
+        Assert.assertEquals(containerText.contains("Providence Healthcare"), true);
+        Assert.assertEquals(containerText.contains("Co-op"), true);
+        Assert.assertEquals(containerText.contains("09/19"), true);
+        Assert.assertEquals(containerText.contains("05/20"), true);
+        Assert.assertEquals(containerText.contains("Vancouver, Canada"), true);
+        Assert.assertEquals(containerText.contains(
+                "Worked with product managers to re-architect a multi-page web app into a single page web-app, boosting yearly revenue by $1.4M"),
+                true);
+    }
+
+    @When("new experience is added, saved, edited again, and cancelled")
+    public void newExperienceAddedSavedEditedCancelled() {
+        By expandButton = By.cssSelector(".add-experience-section button.expand-section");
+        WebElement section = wait.until(ExpectedConditions.elementToBeClickable(experience.expandExperienceSection()));
+        WebElement expand = section.findElement(expandButton);
+        js.executeScript("arguments[0].scrollIntoView(true);", expand);
+        js.executeScript("arguments[0].click();", expand);
+
+        addExperience = wait.until(ExpectedConditions.elementToBeClickable(experience.createExperience()));
+        js.executeScript("arguments[0].scrollIntoView(true);", addExperience);
+        js.executeScript("arguments[0].click();", addExperience);
+
+        companyName = wait.until(ExpectedConditions.elementToBeClickable(experience.addCompanyName()));
+        positionTitle = wait.until(ExpectedConditions.elementToBeClickable(experience.addPositionTitle()));
+        startDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceStartDate()));
+        endDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceEndDate()));
+        location = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceLocation()));
+
+        companyName.sendKeys("Meta");
+        positionTitle.sendKeys("Product Owner");
+        startDate.sendKeys("December 10, 1998");
+        endDate.sendKeys("May 10, 2000");
+        location.sendKeys("Brighton, England");
+
+        save = wait.until(ExpectedConditions.elementToBeClickable(experience.experienceSave()));
+        js.executeScript("arguments[0].scrollIntoView(true);", save);
+        js.executeScript("arguments[0].click();", save);
+
+        // Edit and cancel edits
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[p[@class='collapsed-form-title' and text()='Meta']]")));
+        js.executeScript("arguments[0].scrollIntoView(true);", button);
+        js.executeScript("arguments[0].click();", button);
+        companyName = wait.until(ExpectedConditions.elementToBeClickable(experience.addCompanyName()));
+        positionTitle = wait.until(ExpectedConditions.elementToBeClickable(experience.addPositionTitle()));
+        startDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceStartDate()));
+        endDate = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceEndDate()));
+        location = wait.until(ExpectedConditions.elementToBeClickable(experience.addExperienceLocation()));
+        clearWebField(companyName);
+        clearWebField(positionTitle);
+        clearWebField(startDate);
+        clearWebField(endDate);
+        clearWebField(location);
+        companyName.sendKeys("Turntable Games");
+        positionTitle.sendKeys("Marketing Manager");
+        startDate.sendKeys("December 25, 2021");
+        endDate.sendKeys("December 26, 2022");
+        location.sendKeys("Paris, France");
+
+        cancel = wait.until(ExpectedConditions.elementToBeClickable(experience.experienceCancel()));
+        js.executeScript("arguments[0].scrollIntoView(true);", cancel);
+        js.executeScript("arguments[0].click();", cancel);
+    }
+
+    @Then("the edit on the new experience does not appear")
+    public void verifyNewExperienceEditDoesNotAppear() {
+        containerText = resumeContainer.getText();
+        System.out.println("Text inside the textarea is " + containerText);
+        Assert.assertEquals(containerText.contains("Meta"), true);
+        Assert.assertEquals(containerText.contains("Product Owner"), true);
+        Assert.assertEquals(containerText.contains("December 10, 1998"), true);
+        Assert.assertEquals(containerText.contains("May 10, 2000"), true);
+        Assert.assertEquals(containerText.contains("Brighton, England"), true);
+
+        Assert.assertEquals(containerText.contains("Turntable Games"), false);
+        Assert.assertEquals(containerText.contains("Marketing Manager"), false);
+        Assert.assertEquals(containerText.contains("December 25, 2021"), false);
+        Assert.assertEquals(containerText.contains("December 26, 2022"), false);
+        Assert.assertEquals(containerText.contains("Paris, France"), false);
     }
 
     public void clearWebField(WebElement element) {
