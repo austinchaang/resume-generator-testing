@@ -1,0 +1,3 @@
+# Resume Generator Testing Project
+
+Programmed comprehensive test scripts utilizing Selenium WebDriver, Java, Cucumber, Gherkin, and Maven to validate the robustness of my Resume Generator web application. This comprehensive suite of automated end-to-end and integration tests seamlessly covers an array of scenarios, ensuring a reliable and high-quality user experience. You can access the [Resume Gernator here](https://austinchangresumegenerator.netlify.app/)

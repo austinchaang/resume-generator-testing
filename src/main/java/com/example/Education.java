@@ -5,12 +5,13 @@ import org.openqa.selenium.By;
 public class Education {
 
     By expandEducationSection = By.className("add-education-section");
-    By createEducation = By.id("create-education");
+    By createEducation = By
+            .xpath("//div[@class='section-content open']//button[@class='create-form']//h4[text()='Education']");
     By addSchoolName = By.id("school-name");
     By addDegree = By.id("degree");
     By addFieldOfStudy = By.id("field-of-study");
-    By addEducationStartDate = By.id("educationstart-date");
-    By addEducationEndDate = By.id("end-date");
+    By addEducationStartDate = By.id("education-start-date");
+    By addEducationEndDate = By.id("education-end-date");
     By addEducationLocation = By.id("education-location");
     By cancel = By.className("cancel");
     By save = By.className("save");

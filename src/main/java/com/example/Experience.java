@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 public class Experience {
 
     By expandExperienceSection = By.className("add-experience-section");
-    By expandButton = By.cssSelector(".add-experience-section button.expand-section");
     By createExperience = By.className("create-form");
     By addCompanyName = By.id("company-name");
     By addPositionTitle = By.id("position-title");
